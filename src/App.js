@@ -43,7 +43,16 @@ export class App {
         })
         console.debug("Class Attendance list")
         console.debug(attendanceListFilteredWithFuzzySearch)
-
-        await attendanceService.setAttendanceForTodaysLesson(turmaId, JSON.stringify(attendanceListFilteredWithFuzzySearch))
+        
+        console.debug("Auxiliar teacher (ME) added to Attendance list")
+        const todayLesson = await lessonsService.getTodayLesson(turmaId)
+        let auxiliarTeacher = todayLesson.auxTeacherDTO
+        auxiliarTeacher.date = new Date().toISOString()
+        auxiliarTeacher.isMe = true
+        auxiliarTeacher.present = true
+        let attendanceListFilteredWithFuzzySearchAndWithAuxTeacherAdded = attendanceListFilteredWithFuzzySearch.concat(auxiliarTeacher)
+        console.debug(attendanceListFilteredWithFuzzySearchAndWithAuxTeacherAdded)
+        
+        await attendanceService.setAttendanceForTodaysLesson(turmaId, JSON.stringify(attendanceListFilteredWithFuzzySearchAndWithAuxTeacherAdded))
     }
 }
