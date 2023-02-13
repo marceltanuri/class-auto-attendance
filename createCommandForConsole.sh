@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-while getopts ":h:u:t:p:" opt; do
+while getopts ":h:u:t:p:f:" opt; do
   case $opt in
     h) api_url="$OPTARG"
     ;;
@@ -9,6 +9,8 @@ while getopts ":h:u:t:p:" opt; do
     t) turmaId="$OPTARG"
     ;;
     p) teachers="$OPTARG"
+    ;;
+    f) fuzzyThreshold="$OPTARG"
     ;;
     \?) echo "Invalid option -$OPTARG" >&2
     exit 1
@@ -37,7 +39,7 @@ cd -
 
 cp ${SCRIPTPATH}/dist/js/main.js ${SCRIPTPATH}/dist/js/commandForConsole.js
 
-echo "await new _ClassAutoAttendance.App().run('${api_url}', '${user}', '${pass}', '${turmaId}', [${teachers}])" >> ${SCRIPTPATH}/dist/js/commandForConsole.js
+echo "await new _ClassAutoAttendance.App().run('${api_url}', '${user}', '${pass}', '${turmaId}', [${teachers}], '${fuzzyThreshold}')" >> ${SCRIPTPATH}/dist/js/commandForConsole.js
 
 xclip -selection clipboard ${SCRIPTPATH}/dist/js/commandForConsole.js
 
