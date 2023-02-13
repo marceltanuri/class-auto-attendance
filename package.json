@@ -1,15 +1,15 @@
 {
   "name": "class-auto-attendance",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "attendance-report": "^1.0.0",
+    "attendance-report": "^2.0.0",
     "fuse.js": "^6.6.2",
-    "ada-class-client": "^6.6.0",
+    "ada-class-client": "^6.7.0",
     "gulp": "^4.0.2",
     "gulp-clean": "^0.4.0",
     "gulp-cli": "^2.3.0",
@@ -17,6 +17,10 @@
     "minify": "^9.2.0",
     "webpack": "^5.75.0"
   },
-  "author": "",
+  "author": "marcel.tanuri@gmail.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marceltanuri/class-auto-attendance"
+  },
   "license": "ISC"
 }
