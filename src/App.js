@@ -19,6 +19,7 @@ export class App {
                     !name.includes("(Você)"))
         })
 
+        console.debug("Google Meet Attendance list")
         console.debug(meetAttendanceList_onlyStudents)
 
         const attendanceForTodaysLesson = await attendanceService.getAttendanceForTodaysLesson(turmaId);
@@ -26,7 +27,7 @@ export class App {
         const invalidThreshold = threshold == null || isNaN(threshold) || (parseFloat(threshold) < 0 || parseFloat(threshold) > 1)
         if (invalidThreshold)
             threshold = 0.4
-        console.debug("threshold: " + threshold)
+        console.debug("fuzzy threshold: " + threshold)
 
         const fuzzyOptions = {
             includeScore: true,
@@ -40,6 +41,7 @@ export class App {
             item.present = true
             item.remote = true
         })
+        console.debug("Class Attendance list")
         console.debug(attendanceListFilteredWithFuzzySearch)
 
         await attendanceService.setAttendanceForTodaysLesson(turmaId, JSON.stringify(attendanceListFilteredWithFuzzySearch))

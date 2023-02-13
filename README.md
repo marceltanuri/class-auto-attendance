@@ -5,12 +5,12 @@ It automates attendance task for Ada Class todays lesson by using the Ada Class 
 ## How to use it
 
 * `npm install`
-* Run the createCommandForConsole with API_URL, user, turmaId and teacher names as a parameters
+* Run the `createCommandForConsole.sh` script with the following parameters:
     * -u `your username to get access to Ada Class`
     * -h `Ada Class API baseURL, you might need to inspect Ada Class Web APP to find it`
     * -t `The class identifier (turmaId), you might also need to inspect Ada Class Web APP to find it`
     * -p `Teacher names, the program will exclude teachers to the attendance list`
-    * -f (optional) `Fuzzy threshold that will be used to compare the student name from meeting attendance list with the name stored in the Ada Class database. Default threshold is 0.4, moderated. Minimum value is 0 (hight precision), max value is 1 (soft precision)`
+    * -f <i>(optional)</i> `Fuzzy threshold that will be used to compare the student name from meeting attendance list with the name stored in the Ada Class database. Default threshold is 0.4, moderated. Minimum value is 0 (hight precision), max value is 1 (soft precision)`
     * your Ada Class password will be asked in silent mode
 
 <br/>
