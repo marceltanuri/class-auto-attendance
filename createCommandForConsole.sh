@@ -40,7 +40,6 @@ cp ${SCRIPTPATH}/dist/js/main.js ${SCRIPTPATH}/dist/js/commandForConsole.js
 echo "await new _ClassAutoAttendance.App().run('${api_url}', '${user}', '${pass}', '${turmaId}', [${teachers}])" >> ${SCRIPTPATH}/dist/js/commandForConsole.js
 
 xclip -selection clipboard ${SCRIPTPATH}/dist/js/commandForConsole.js
-rm -rf ${SCRIPTPATH}/dist/js/commandForConsole.js
 
 
 
